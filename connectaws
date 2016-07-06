@@ -1,0 +1,41 @@
+#!/bin/sh
+
+usage () {
+	printf "%s [servername]\n" $0
+	print_servers
+}
+
+print_servers () {
+	printf "Available servers: [padawan] [darkstar] [myredhat]\n" 
+}
+
+
+#-------------------------------------------------------------------------------
+# argument parsing
+#-------------------------------------------------------------------------------
+
+while :
+do
+    case $1 in
+	-h)
+	    usage
+	    exit 0
+	    ;;
+	padawan)
+	    ssh -i ~/awskeys/padawan.pem ec2-user@52.59.44.104
+	    break
+	    ;;
+	darkstar)
+	    ssh -i ~/awskeys/darkstar.pem ec2-user@52.59.48.174
+	    break
+	    ;;
+	myredhat)
+	    ssh -i ~/awskeys/myredhat.pem ec2-user@ec2-52-59-42-251.eu-central-1.compute.amazonaws.com
+	    break
+	    ;;
+	*)
+	    usage
+	    exit 1
+	    ;;
+    esac
+done	
