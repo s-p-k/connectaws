@@ -6,7 +6,7 @@ usage () {
 }
 
 print_servers () {
-	printf "Available servers: [padawan] [darkstar] [myredhat]\n" 
+	printf "Available servers: [padawan] [darkstar] [myredhat] [nami] [zoro]\n" 
 }
 
 
@@ -31,6 +31,14 @@ do
 	    ;;
 	myredhat)
 	    ssh -i ~/awskeys/myredhat.pem ec2-user@ec2-52-59-42-251.eu-central-1.compute.amazonaws.com
+	    break
+	    ;;
+	nami)
+	    ssh -i ~/awskeys/nami.pem ec2-user@52.29.139.195
+	    break
+	    ;;
+	zoro)
+	    ssh -i ~/awskeys/zoro.pem ec2-user@52.59.29.46
 	    break
 	    ;;
 	*)
